@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+<script>
+
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyB1eL5npKgzO7oURsgXVBihaFmiPh8oces",
+        authDomain: "dobdata-e1519.firebaseapp.com",
+        databaseURL: "https://dobdata-e1519.firebaseio.com",
+        projectId: "dobdata-e1519",
+        storageBucket: "dobdata-e1519.appspot.com",
+        messagingSenderId: "69463506076"
+    };
+
+    firebase.initializeApp(config);
+    var database = firebase.database();
+
+    function submitToFireBase(data) {
+        //convert array to object
+        var dataObj = {};
+        data.forEach(function(elm ,idx) {
+           dataObj['dobidx'+idx] = elm ;
+        });
+
+        // push dataobj to firebase server
+      database.ref().set(dataObj);
+        console.log ('array is converted to an object and submitted to the firebase DB');
+    }
+
+    $.getJSON('https://data.cityofnewyork.us/resource/rvhx-8trz.json', function(data)  {
+        submitToFireBase(data)
+    });
+
+</script>
+</body>
+</html>

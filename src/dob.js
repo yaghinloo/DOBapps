@@ -15,22 +15,23 @@ class DOB {
     createDOBTable() {
         this.container.innerHTML = "Project started";
     }
+
 // callback on json load
     setInitialState(data) {
         this.JSONRsp = data;
-       this.createDOBTable();
+        this.createDOBTable();
         console.log(data);
     }
 
 //call the DOB endpoint and load the JSON data
     loadDOBJSON() {
-        $.getJSON('https://data.cityofnewyork.us/resource/rvhx-8trz.json', (data)=>{
+        $.getJSON('https://data.cityofnewyork.us/resource/rvhx-8trz.json', (data) => {
             this.setInitialState(data)
         });
     }
 
 }
-document.addEventListener("DOMContentLoaded",() => {
+document.addEventListener("DOMContentLoaded", () => {
     new DOB();
 })
 
