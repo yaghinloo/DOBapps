@@ -1,0 +1,40 @@
+
+.dataTable th, .dataTable td {
+    max-width: 20em;
+    min-width: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#dob_container {
+    margin: 0 auto;
+    max-width: 1024px;
+
+}
+
+.dataTable th {
+    text-transform: capitalize;
+}
+#dob-box {
+    text-align: center;
+    padding: 7em 1em;
+    width: 95%;
+}
+h3 {
+    background-color: #384da0;
+    color: #FFF;
+    line-height: 1.21em;
+    padding: 1px 0 1px 13px;
+    font-family: "Univers Next W01 Bold";
+    font-size: 16px;
+    padding-bottom: 6px;
+    padding-top: 4px;
+    text-transform: uppercase;
+}
+#page {
+    background: white;
+}
+footer.site-footer {
+    background-image:none ;
+}

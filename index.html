@@ -1,16 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+    <!-- Read data from Firebase DB and show in paginated table
+     by : Hadi Yaghinloo -  2017
+     -->
     <meta charset="UTF-8">
     <title>DOB applications</title>
-
     <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
-
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <link href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" type="text/css" rel="stylesheet"/>
+    <link href="https://www.simonsfoundation.org/wp-content/themes/simons/style.css?ver=r20170126" type="text/css"
+          rel="stylesheet"/>
+    <link href="css/dob.css" type="text/css" rel="stylesheet"/>
 </head>
-<body>
+<body class="home blog tribe-js hellip_ready">
+<div id="page" class="hfeed site">
+    <div class="shadow">
+        <header>
+        <h1>A Tarining on calling an endpoint APi Via Ajax </h1>
+        </header>
+        <main>
+        <div id="dob-box" class="homeMiddle">
+            <a href="savetofirebase.html">click here if you want to store the last data in DB</a>
+            <h1 class="useBg">Showing DOB Data from Database</h1>
+            <div id="dob_container">
+                <img src="img/gears.gif" height="100%"/>
+                <h3>loading...</h3>
+            </div>
 
-<div id="dob_container"></div>
-<script src="src/dob.js"></script>
+        </div>
+        </main>
+        <script src="src/dob.js"></script>
+    </div>
+
+
+<footer id="colophon" class="site-footer" role="contentinfo">
+    <div class="site-info">
+        <div class="menu-footer-container"><ul id="menu-footer" class="menu"><li id="menu-item-58" class="first menu-item menu-item-type-post_type menu-item-object-page menu-item-58"><a href="https://www.hadiart.com/">About hadi yaghinloo</a></li>
+            <li id="menu-item-1456" class="last menu-item menu-item-type-post_type menu-item-object-page menu-item-1456"><a href="https://www.hadiart.com/">hadi yaghinloo</a></li>
+        </ul></div> </div>
+</footer>
+</div>
 </body>
 </html>

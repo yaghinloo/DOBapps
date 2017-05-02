@@ -1,0 +1,34 @@
+{
+  "name": "dobfromdb",
+  "version": "1.0.0",
+  "description": "a homework to show paginated data from web db",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "babel --plugins transform-es2015-modules-umd src --out-dir dist",
+    "prebuild": "rm -rf dist && mkdir dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yaghinloo/DOBapps.git"
+  },
+  "author": "hadi yaghinloo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yaghinloo/DOBapps/issues"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-cli": "^6.18.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babelify": "^7.2.0",
+    "browserify": "^13.0.0",
+    "babel-plugin-transform-es2015-modules-umd": "^6.22.0"
+  },
+  "homepage": "https://github.com/yaghinloo/DOBapps#readme"
+}
