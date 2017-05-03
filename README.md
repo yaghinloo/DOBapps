@@ -1,35 +1,30 @@
-# DOBapps
-DOB applications
+# DOB data
+**a simple project to store JSON data on DB and show them on browser**
+*By: Hadi Yaghinlou*
 
-In this code i have implemented the following logic
+In this code i have implemented the following logic:
 
-1- read the latest data from the NYC DOB API server and store it to DB
+ - read the latest data from the NYC DOB API server and store it to DB
+ - read the Data from DB
+ - clean up the table header names from extra character like '_'
+ - create a table with the content
+ - apply pagination package on the table
+ - fix and update the styles
 
-2- read the Data from DB
-
-3- clean up the table header names from extra character like '_'
-
-4- create a table with the content
-
-5- apply pagination package on the table
-
-6- fix and update the styles
-
-
-JS code :
+**JS code :**
 code is written in ES6 and transpiled using babel.
 I have used UMD standard to bring the AMD and CJS standards as well as normal script tag.
 
-Libraries :
+**Libraries :**
  jQuery for loading the ajax requests
  datatable jQuery package for pagination of the printed table.
 
-Database :
+**Database :**
   the Firebase is serving as Web database here. We also have the option to
   store the latest updates on DOB API on fire base database.
   Then the code  sends http request to firebase and gets the data
 
-  About the libraries and frameworks:
+  **About the libraries and frameworks:**
   If we want to use this as component on existing site which does not
   use any MVC framework like Angular or a V frame work like React,
   That additional code will increase the load and does not provide any
