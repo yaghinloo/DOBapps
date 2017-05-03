@@ -10,7 +10,7 @@
 #dob_container {
     margin: 0 auto;
     max-width: 1024px;
-
+    clear: both;
 }
 
 .dataTable th {
@@ -18,7 +18,7 @@
 }
 #dob-box {
     text-align: center;
-    padding: 7em 1em;
+    padding:   1em;
     width: 95%;
 }
 h3 {
@@ -37,4 +37,39 @@ h3 {
 }
 footer.site-footer {
     background-image:none ;
+}
+
+.savetofirebase  , .savetofirebase:visited {
+    float: right;
+    position: relative;
+    width: auto;
+    font-size: 14px;
+    line-height: 27px;
+    text-align: center;
+    border-right: 1px solid #FFF;
+    background-color: #3a509c;
+    text-transform: uppercase;
+    color: white;
+    text-decoration: none;
+    padding: 2px 7px;
+    font-family: Univers NextW01 Regular  ;
+    margin-bottom: 2em;
+}
+.savetofirebase:hover {
+    background-color: #d4bc03;
+    text-decoration: none;
+    color:white;
+}
+
+header {
+    font-size: 24px;
+    text-transform: uppercase;
+    color: darkblue;
+    padding: 47px 0 0 43px;
+    font-family: Univers Next W01 Bold;
+}
+header h2 {
+    font-size: 18px;
+    padding-left: 60px;
+    text-transform: capitalize;
 }
