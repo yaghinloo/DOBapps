@@ -43,6 +43,7 @@
 
             //load JSON from the end point
             this.JSONRsp = null;
+            this.JSONRspOBJ = {};
             this.DOBconf = params;
             this.container = document.querySelector(this.DOBconf.container);
             this.headerCollection = [];
@@ -63,13 +64,14 @@
                 this.headerCollection.forEach(function (header) {
                     tableMarkup += '<th data-headername ="' + (header || '') + '"> ' + (header.replace('_s', '').split('_').join('&#160;') || '') + ' </th> ';
                 });
+
                 tableMarkup += '</tr></thead>';
                 tableMarkup += '<tbody>';
 
                 this.JSONRsp.forEach(function (row) {
                     var rowMarkup = '<tr>';
                     _this.headerCollection.forEach(function (headerName) {
-                        rowMarkup += '<td>' + (row[headerName] || '');
+                        rowMarkup += '<td>' + (row[headerName] || '') + ' </td>';
                     });
                     rowMarkup += '</tr>';
                     tableMarkup += rowMarkup;
@@ -82,10 +84,16 @@
         }, {
             key: 'setInitialState',
             value: function setInitialState(data) {
-                this.JSONRsp = data;
+                var _this2 = this;
+
+                this.JSONRspOBJ = data;
 
                 // read the table header to make it consistent
-                this.headerCollection = Object.keys(this.JSONRsp[0]);
+                this.headerCollection = Object.keys(this.JSONRspOBJ.dobidx0000);
+                //  this.headerCollection = Object.keys(this.JSONRsp[0]);
+                this.JSONRsp = Object.keys(this.JSONRspOBJ).map(function (key) {
+                    return _this2.JSONRspOBJ[key];
+                });
 
                 // create the table
                 this.createDOBTable();
@@ -98,10 +106,10 @@
         }, {
             key: 'loadDOBJSON',
             value: function loadDOBJSON() {
-                var _this2 = this;
+                var _this3 = this;
 
-                $.getJSON(this.DOBconf.DOBApiurl, function (data) {
-                    _this2.setInitialState(data);
+                $.getJSON(this.DOBconf.firebaseDB, function (data) {
+                    _this3.setInitialState(data);
                 });
             }
         }]);
@@ -112,7 +120,8 @@
     // config object
     var DOBConf = {
         container: '#dob_container',
-        DOBApiurl: 'https://data.cityofnewyork.us/resource/rvhx-8trz.json'
+        DOBApiurl: 'https://data.cityofnewyork.us/resource/rvhx-8trz.json',
+        firebaseDB: 'https://dobquery.firebaseio.com/.json'
 
     };
 

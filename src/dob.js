@@ -7,6 +7,7 @@ class DOB {
     constructor(params) {
         //load JSON from the end point
         this.JSONRsp = null;
+        this.JSONRspOBJ = {} ;
         this.DOBconf = params;
         this.container = document.querySelector(this.DOBconf.container);
         this.headerCollection = [];
@@ -22,13 +23,15 @@ class DOB {
         this.headerCollection.forEach((header) => {
             tableMarkup += `<th data-headername ="${ header || ''}"> ${header.replace('_s', '').split('_').join('&#160;') || ''} </th> `;
         });
+
+
         tableMarkup += '</tr></thead>';
         tableMarkup += '<tbody>';
 
         this.JSONRsp.forEach((row) => {
             let rowMarkup = '<tr>';
             this.headerCollection.forEach((headerName) => {
-                rowMarkup += `<td>${ row[headerName] || ''}`;
+                rowMarkup += `<td>${ row[headerName] || ''} </td>` ;
             });
             rowMarkup += '</tr>';
             tableMarkup += rowMarkup;
@@ -43,10 +46,12 @@ class DOB {
 
 // callback on json load
     setInitialState(data) {
-        this.JSONRsp = data;
+        this.JSONRspOBJ = data;
 
         // read the table header to make it consistent
-        this.headerCollection = Object.keys(this.JSONRsp[0]);
+       this.headerCollection = Object.keys(this.JSONRspOBJ.dobidx0000);
+      //  this.headerCollection = Object.keys(this.JSONRsp[0]);
+       this.JSONRsp =  Object.keys(this.JSONRspOBJ).map(  (key)=> { return this.JSONRspOBJ[key]; });
 
         // create the table
         this.createDOBTable();
@@ -60,7 +65,7 @@ class DOB {
 
 //call the DOB endpoint and load the JSON data
     loadDOBJSON() {
-        $.getJSON(this.DOBconf.DOBApiurl, (data) => {
+        $.getJSON(this.DOBconf.firebaseDB, (data) => {
             this.setInitialState(data)
         });
     }
@@ -70,7 +75,8 @@ class DOB {
 // config object
 const DOBConf = {
     container: '#dob_container',
-    DOBApiurl: 'https://data.cityofnewyork.us/resource/rvhx-8trz.json'
+    DOBApiurl: 'https://data.cityofnewyork.us/resource/rvhx-8trz.json',
+    firebaseDB :'https://dobquery.firebaseio.com/.json'
 
 };
 
